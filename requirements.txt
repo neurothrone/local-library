@@ -1,0 +1,25 @@
+# core
+fastapi
+uvicorn[standard]
+
+# db orm and migration
+aiosqlite
+aerich
+tortoise-orm
+
+# forms
+python-multipart
+
+# static and template files
+aiofiles
+fastapi-jinja
+jinja2
+
+# environment
+python-dotenv
+
+# testing
+asgi-lifespan
+httpx
+pytest
+pytest-asyncio
