@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Zaid Neurothrone">
+    {% block head %}{% endblock %}
+    <title>Book Library Web App / API</title>
+    <!-- Brand icon -->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', path='img/favicon.ico') }}">
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', path='libs/bootstrap/css/bootstrap.min.css') }}">
+    <!-- FontAwesome Core CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', path='libs/fontawesome/css/all.min.css') }}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', path='css/main.css') }}">
+    {% block additional_css %}{% endblock %}
+    <!-- Fonts -->
+</head>
+<body class="d-flex flex-column h-100">
+
+<!-- Content -->
+<main class="container my-4">
+    {% block page_content %}
+        <h1 class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <img class="me-3"
+                 src="{{ url_for('static', path='img/icons8-cloud-library-64.png') }}"
+                 alt="Image of a cloud in gradient color"> Book Library Web App / API
+        </h1>
+    {% endblock %}
+</main>
+
+<!-- Footer -->
+{% include "shared/footer.html" %}
+
+<!-- Scripts -->
+{% block scripts %}
+    <!-- Bootstrap Core JS -->
+    <script src="{{ url_for('static', path='libs/bootstrap/js/bootstrap.min.js') }}"></script>
+    <!-- HTMX Core JS -->
+    <script src="{{ url_for('static', path='libs/htmx/htmx.min.js') }}"></script>
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', path='js/main.js') }}"></script>
+{% endblock %}
+
+</body>
+</html>
