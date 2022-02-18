@@ -1,4 +1,4 @@
-# Local Library Web App / Api
+# Local Library Web App / API
 
 ## About
 
