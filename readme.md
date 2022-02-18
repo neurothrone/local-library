@@ -2,6 +2,8 @@
 
 ## About
 
+![Index page of the website](assets/website.png?raw=true "Local Library index page")
+
 A simple asynchronous Web App and API for managing a local library of books. Books that you're reading, have read and
 will read.
 
