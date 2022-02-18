@@ -15,7 +15,15 @@ A working demo can be found at [Heroku][demo].
 
 ## Setup
 
-Execute the script `run.py` or run the following command in a terminal from the root project directory:
+1. Install packages from requirements.txt
+2. Add an environment file called `.env` in the projects root directory with the following content:
+
+```sh
+DB_URL=...  # only if using production environment
+ENVIRONMENT=...  # development, testing or production
+```
+
+3. Execute the script `run.py` or run the following command in a terminal from the root project directory:
 
 ```sh
 uvicorn run:app
