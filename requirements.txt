@@ -4,6 +4,7 @@ uvicorn[standard]
 
 # db orm and migration
 aiosqlite
+asyncpg
 aerich
 tortoise-orm
 
