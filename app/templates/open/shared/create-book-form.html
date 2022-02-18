@@ -1,0 +1,35 @@
+<form hx-post="/ajax/books/form"
+      hx-target="this"
+      hx-swap="outerHTML">
+
+    <label class="form-label" for="title">Title</label>
+    <input class="form-control mb-3"
+           autocomplete="off" autofocus
+           required
+           id="title" name="title"
+           type="text" placeholder="Title of the book">
+
+    <label class="form-label" for="author">Author</label>
+    <input class="form-control mb-3"
+           autocomplete="off" autofocus
+           required
+           id="author" name="author"
+           type="text" placeholder="Author of the book">
+
+    <label class="form-label" for="category">Status</label>
+    <select class="form-select mb-3"
+            required
+            id="category" name="category">
+        <option value="is_reading" selected>Reading</option>
+        <option value="have_read">Have read</option>
+        <option value="will_read">Will read</option>
+    </select>
+
+    <button class="btn btn-outline-success"
+            type="submit"
+    >Create Book
+    </button>
+    <button class="btn btn-secondary"
+            hx-get="/ajax/books/btn">Cancel
+    </button>
+</form>

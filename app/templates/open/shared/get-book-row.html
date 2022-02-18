@@ -1,0 +1,14 @@
+<tr>
+    <td>{{ book.id }}</td>
+    <td>{{ book.title }}</td>
+    <td>{{ book.author }}</td>
+    <td>{{ book.category }}</td>
+    <td>
+        <button class="btn btn-warning fa-solid fa-pen-to-square"
+                hx-get="/ajax/books/edit/{{ book.id }}">
+        </button>
+        <button class="btn btn-danger fa-solid fa-trash-can"
+                hx-delete="/ajax/books/{{ book.id }}">
+        </button>
+    </td>
+</tr>

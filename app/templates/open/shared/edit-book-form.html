@@ -1,0 +1,40 @@
+<tr class="editing mb-3"
+    hx-get="/ajax/books/{{ book.id }}"
+    hx-trigger="cancel">
+    <td>{{ book.id }}</td>
+    <td>
+        <label for="title" hidden></label>
+        <input class="form-control"
+               id="title"
+               name="title" value="{{ book.title }}">
+    </td>
+    <td>
+        <label for="author" hidden></label>
+        <input class="form-control"
+               id="author"
+               name="author" value="{{ book.author }}">
+    </td>
+    <td>
+        <label for="category" hidden></label>
+        <select class="form-select"
+                id="category"
+                name="category">
+            <option value="is_reading" {% if book.category == Category.IS_READING %}selected{% endif %}>Reading
+            </option>
+            <option value="have_read" {% if book.category == Category.HAVE_READ %}selected{% endif %}>Have read
+            </option>
+            <option value="will_read" {% if book.category == Category.WILL_READ %}selected{% endif %}>Will read
+            </option>
+        </select>
+    </td>
+    <td>
+        <button class="btn btn-success fa-solid fa-square-check"
+                hx-put="/ajax/books/{{ book.id }}"
+                hx-include="closest tr">
+        </button>
+        <button class="btn btn-secondary fa-solid fa-square-xmark"
+                hx-get="/ajax/books/{{ book.id }}"
+                hx-trigger="search">
+        </button>
+    </td>
+</tr>
