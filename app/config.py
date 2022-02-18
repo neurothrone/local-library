@@ -14,7 +14,7 @@ class ConfigType(str, Enum):
 
 class Settings(BaseSettings):
     DEBUG: bool = False
-    PROJECT_TITLE: str = "Book Library Web App / API"
+    PROJECT_TITLE: str = "Local Library Web App / API"
     PROJECT_VERSION: str = "1.0.0"
 
     class Config:
