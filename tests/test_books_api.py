@@ -6,8 +6,6 @@ create_book_payload = dict(
     title="Dune",
     author="Frank Herbert",
     category="have_read",
-    book_link="https://www.goodreads.com/book/show/44767458-dune",
-    image_link="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1555447414l/44767458.jpg"
 )
 
 
@@ -15,8 +13,6 @@ def run_book_asserts(json: dict, payload: dict, book_id: int | None = None) -> N
     assert json["title"] == payload["title"]
     assert json["author"] == payload["author"]
     assert json["category"] == payload["category"]
-    assert json["book_link"] == payload["book_link"]
-    assert json["image_link"] == payload["image_link"]
     if not book_id:
         assert json["id"] is not None
     else:

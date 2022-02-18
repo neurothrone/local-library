@@ -7,5 +7,5 @@ from app.data.models.book import BookDB
 
 @pytest.mark.asyncio
 async def test_get_by_id_does_not_exist(client: httpx.AsyncClient):
-    with pytest.raises(DoesNotExist) as e_info:
+    with pytest.raises(DoesNotExist):
         await BookDB.get(id=1)
