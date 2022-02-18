@@ -18,6 +18,13 @@ async def read_books(
     return books
 
 
+@router.get("/books/search", response_model=list[BookOut])
+async def read_books_ilike_by(
+        books: list[BookOut] = Depends(BookController.get_all_ilike_by)
+):
+    return books
+
+
 @router.get("/books/{book_id}", response_model=BookOut)
 async def read_book(
         book: BookOut = Depends(BookController.get_by_id)

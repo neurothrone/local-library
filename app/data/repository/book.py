@@ -1,3 +1,5 @@
+from tortoise.expressions import Q
+
 from app.data.models.book import BookDB
 
 
@@ -18,6 +20,18 @@ class BookRepository:
                       limit: int
                       ) -> list[BookDB]:
         return await BookDB.all().offset(offset).limit(limit)
+
+    @classmethod
+    async def get_all_ilike_by(cls,
+                               query: str,
+                               offset: int,
+                               limit: int
+                               ) -> list[BookDB]:
+        return await BookDB \
+            .filter(Q(title__icontains=query) | Q(author__icontains=query)) \
+            .all() \
+            .offset(offset) \
+            .limit(limit)
 
     @classmethod
     async def update_book(cls,

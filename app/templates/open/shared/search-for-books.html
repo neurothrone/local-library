@@ -1,0 +1,13 @@
+<label for="text" hidden></label>
+<input class="form-control" type="search"
+       id="text"
+       name="text" placeholder="Begin typing to search for Books..."
+       hx-get="/ajax/search"
+       hx-trigger="keyup changed delay:400ms, search"
+       hx-target="#search-results"
+       hx-indicator=".htmx-indicator"
+>
+
+<p class="text-center my-2"><span class="htmx-indicator">Searching...</span></p>
+
+<div id="search-results"></div>

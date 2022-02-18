@@ -37,6 +37,16 @@ class BookController:
         return [BookOut.from_orm(book) for book in books_db]
 
     @classmethod
+    async def get_all_ilike_by(cls,
+                               *,
+                               query: str = Query(default=""),
+                               offset: int = 0,
+                               limit: int = Query(default=100, lte=100)
+                               ) -> list[BookOut]:
+        books_db = await BookRepository.get_all_ilike_by(query, offset, limit)
+        return [BookOut.from_orm(book) for book in books_db]
+
+    @classmethod
     async def get_by_id(cls,
                         book_id: int
                         ) -> BookOut:

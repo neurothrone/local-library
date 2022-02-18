@@ -1,0 +1,27 @@
+{% if books %}
+    <div class="table-responsive mt-3">
+        <table class="table table-sm align-middle caption-top">
+            <caption>
+                <p>
+                    <span class="float-start">List of books</span>
+                    <span class="float-end"><strong>{{ books|count }}</strong> results</span>
+                </p>
+            </caption>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Category</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody hx-target="closest tr"
+                   hx-swap="outerHTML swap:1s">
+            {% for book in books %}
+                {% include "open/shared/get-book-row.html" %}
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endif %}
