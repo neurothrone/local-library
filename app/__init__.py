@@ -5,7 +5,7 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
-from .config import ConfigType, get_db_url, settings
+from .config import ConfigType, settings
 from .data.db import init_db
 
 BASE_PATH = Path(__file__).resolve().parent
@@ -13,7 +13,7 @@ template_folder = str(BASE_PATH / "templates")
 templates = Jinja2Templates(directory=template_folder)
 
 
-def create_app(config_type: ConfigType = ConfigType.DEVELOPMENT) -> FastAPI:
+def create_app(config_type: ConfigType | None = None) -> FastAPI:
     app = FastAPI(title=settings.PROJECT_TITLE,
                   version=settings.PROJECT_VERSION)
 
@@ -29,10 +29,10 @@ def configure(app: FastAPI) -> None:
     app.mount("/static", StaticFiles(directory=str(BASE_PATH / "static")), name="static")
 
 
-def register_events(app: FastAPI, config_type: ConfigType) -> None:
+def register_events(app: FastAPI, config_type: ConfigType | None = None) -> None:
     @app.on_event("startup")
     async def on_startup():
-        await init_db(app, get_db_url(config_type))
+        await init_db(app, settings.get_db_url(config_type))
 
         if settings.DEBUG:
             print(settings)
