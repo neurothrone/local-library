@@ -7,12 +7,6 @@
 An asynchronous Web App and API for managing a local library of books. Books that you're reading, have read and
 will read.
 
-## Demo
-
-[demo]: https://zn-local-library.herokuapp.com
-
-A working demo can be found at [Heroku][demo].
-
 ## Setup
 
 1. Install packages from requirements.txt
@@ -31,12 +25,10 @@ uvicorn run:app
 
 ## Tools
 
-[fastapi]: https://fastapi.tiangolo.com/
-
-[tortoise-orm]: https://tortoise-orm.readthedocs.io/
-
-[htmx]: https://htmx.org/
-
 - Web framework: [FastAPI][fastapi]
 - Database ORM: [Tortoise ORM][tortoise-orm]
 - Frontend: [HTMX][htmx]
+
+[fastapi]: https://fastapi.tiangolo.com/
+[tortoise-orm]: https://tortoise-orm.readthedocs.io/
+[htmx]: https://htmx.org/
